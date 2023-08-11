@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material"
 import { useContext } from "react"
+import TotalPrice from "../components/TotalPrice"
 import { ProductContext } from "../state/ProductContext"
 
 export default function Cart() {
@@ -15,7 +16,7 @@ export default function Cart() {
     cartState: { cart },
     cartDispatch,
   } = useContext(ProductContext)
-  console.log(cart)
+
   return (
     <Container>
       <Typography variant="h2">Cart</Typography>
@@ -59,7 +60,7 @@ export default function Cart() {
               <br />
             </Card>
           ))}
-          <Box>Hello</Box>
+          <TotalPrice />
         </>
       ) : (
         <Typography variant="h3">Cart is empty</Typography>

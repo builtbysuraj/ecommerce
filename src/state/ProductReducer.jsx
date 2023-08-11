@@ -42,6 +42,7 @@ export const ProductReducer = (state, action) => {
         includeOutOfStock: false,
         fastDeliveryOnly: false,
         searchQuery: "",
+        sortPrice: "",
       }
 
     default:
