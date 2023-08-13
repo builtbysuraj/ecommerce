@@ -1,7 +1,9 @@
 import {
   Box,
+  Button,
+  Checkbox,
   FormControl,
-  Input,
+  FormControlLabel,
   MenuItem,
   Select,
   TextField,
@@ -20,7 +22,12 @@ export default function Filters() {
   } = useFilters()
 
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <FormControl>
         <label htmlFor="search">Search:</label>
         <TextField
@@ -30,6 +37,7 @@ export default function Filters() {
           onChange={handleSearchChange}
         />
       </FormControl>
+      <br />
       <FormControl>
         <label htmlFor="sort">Sort by price:</label>
         <Select
@@ -43,25 +51,38 @@ export default function Filters() {
           <MenuItem value="DESCENDING">Descending</MenuItem>
         </Select>
       </FormControl>
-      <FormControl>
-        <label htmlFor="stock">Include out of stock:</label>
-        <Input
-          type="checkbox"
-          id="stock"
-          checked={state.includeOutOfStock}
-          onChange={handleStockChange}
+      <br />
+      <FormControl
+        sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      >
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={state.includeOutOfStock}
+              onChange={handleStockChange}
+            />
+          }
+          label="Include out of stock"
         />
       </FormControl>
-      <FormControl>
-        <label htmlFor="delivery">Fast delivery only:</label>
-        <Input
-          type="checkbox"
-          id="delivery"
-          checked={state.fastDeliveryOnly}
-          onChange={handleDeliveryChange}
+
+      <FormControl
+        sx={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      >
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={state.fastDeliveryOnly}
+              onChange={handleDeliveryChange}
+            />
+          }
+          label="Fast delivery only"
         />
       </FormControl>
-      <button onClick={handleClearClick}>Clear filters</button>
+      <br />
+      <Button variant="contained" onClick={handleClearClick}>
+        Clear filters
+      </Button>
     </Box>
   )
 }
