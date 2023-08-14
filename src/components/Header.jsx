@@ -12,10 +12,30 @@ export default function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography sx={{ flexGrow: 1 }}>
-          <RouterLink to={"/"}>Home</RouterLink>
+          <RouterLink
+            style={{
+              textDecoration: "none",
+              fontSize: "1.5rem",
+              color: "#fff",
+              fontWeight: "bold",
+            }}
+            to={"/"}
+          >
+            Home
+          </RouterLink>
         </Typography>
         <Typography>
-          <RouterLink to={"/cart"}>Cart {cart.length} </RouterLink>
+          <RouterLink
+            style={{
+              textDecoration: "none",
+              fontSize: "1.5rem",
+              color: "#fff",
+              fontWeight: "bold",
+            }}
+            to={"/cart"}
+          >
+            Cart {cart.length}
+          </RouterLink>
         </Typography>
       </Toolbar>
     </AppBar>
